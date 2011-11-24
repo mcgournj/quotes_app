@@ -1,4 +1,8 @@
 QuotesApp::Application.routes.draw do
+
+
+  match '/' => 'mobilequotes#show'
+
   get "screenquotes/new"
 
   get "screenquotes/create"
