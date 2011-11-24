@@ -12,10 +12,10 @@ class MobilequotesController < ApplicationController
    puts ""
    @symbol = params[:text]
    @callback_no = params[:from]
-   puts @symbol
+   puts "Stock: ", @symbol
 
 
-   puts ""
+   puts "Phone no:", @callback_no
 
    require 'yahoofinance'
 
@@ -36,9 +36,8 @@ class MobilequotesController < ApplicationController
     # Set the symbols for which we want to retrieve quotes.
     # You can include more than one symbol by separating 
     # them with a ',' (comma).
-    
 
-    quote_symbols = params[:symbol]
+    quote_symbols = params[:text]
 
     # Get the quotes from Yahoo! Finance.  The get_quotes method call
     # returns a Hash containing one quote object of type "quote_type" for
@@ -48,7 +47,7 @@ class MobilequotesController < ApplicationController
     #puts "QUOTING: #{qt.symbol}"
     #puts qt.to_s
 
-    @stock = params[:symbol]
+    @stock = params[:text]
     puts @stock
     puts ""
 
