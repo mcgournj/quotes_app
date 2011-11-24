@@ -1,7 +1,7 @@
 QuotesApp::Application.routes.draw do
 
 
-  match '/' => 'mobilequotes#show'
+  post "/" => 'mobilequotes#show'
 
   get "screenquotes/new"
 
