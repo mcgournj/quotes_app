@@ -7,18 +7,17 @@ class MobilequotesController < ApplicationController
 
   def show
    puts ""
-   @action = "Show Action"
-   puts @action
+   puts "Executing the Show Action"
    puts ""
-   @stocks = params[:text]
-   @callback_no = params[:from]
 
+  
    puts "Stock:"
-   puts @stocks
-
+   puts params[:text]
+   puts ""
 
    puts "Phone no:"
-   puts @callback_no
+   puts params[:from]
+   puts ""
 
    require 'yahoofinance'
 
@@ -40,6 +39,8 @@ class MobilequotesController < ApplicationController
     # You can include more than one symbol by separating 
     # them with a ',' (comma).
 
+    @stocks = params[:text]
+    @callback_no = params[:from]
     quote_symbols = params[:text]
 
     # Get the quotes from Yahoo! Finance.  The get_quotes method call
