@@ -10,12 +10,15 @@ class MobilequotesController < ApplicationController
    @action = "Show Action"
    puts @action
    puts ""
-   @symbol = params[:text]
+   @stocks = params[:text]
    @callback_no = params[:from]
-   puts "Stock: ", @symbol
+
+   puts "Stock:"
+   puts @stocks
 
 
-   puts "Phone no:", @callback_no
+   puts "Phone no:"
+   puts @callback_no
 
    require 'yahoofinance'
 
@@ -47,9 +50,7 @@ class MobilequotesController < ApplicationController
     #puts "QUOTING: #{qt.symbol}"
     #puts qt.to_s
 
-    @stock = params[:text]
-    puts @stock
-    puts ""
+    
 
     @quote = YahooFinance::get_quotes( quote_type, quote_symbols ) do |stock|
 
