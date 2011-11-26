@@ -4,11 +4,7 @@ class ScreenquotesController < ApplicationController
    
   end
 
- 
 
-  def create
-  
-  end
 
   def show
    puts ""
@@ -21,11 +17,7 @@ class ScreenquotesController < ApplicationController
 
    require 'yahoofinance'
 
-   require 'textmagic'
-
-   # Set usercode and password
-   api = TextMagic::API.new("mcgournj","1dkmJ4QUcBItZ6e")
-    
+  
 
     # Set the type of quote we want to retrieve.
     # Available type are:
@@ -60,8 +52,6 @@ class ScreenquotesController < ApplicationController
     
     puts stock.to_s
     
-    api.send "Price quoted for "+quote_symbols.to_s+"is "+stock.ask.to_s, "353862210662"
- 
     end
 
   end
