@@ -5,5 +5,29 @@
 
 <p>Stock Symbol(s) Requested: <%= @quote_list %> </p>
 
+<table>
+  <tr>
+    <th>Symbol</th>
+    <th>Company Name   </th>
+    <th>Bid Price   </th>
+    <th>Ask Price   </th>
+    <th>Last Trade Date  </th>
+    <th>Trade Price</th>
+    <th></th>
+  </tr>
 
-<p>Quote Details : </p> <%= @quote_info %>
+    
+  <% @quote_info.each do |quote, info| %>
+  <tr>
+    <td><%= info.symbol %> </td>
+    <td><%= info.name %></td>
+    <td><%= info.bid.to_s %></td>
+    <td><%= info.ask.to_s %></td>
+    <td><%= info.lastTradeWithTime.to_s %></td>
+    <td><%= info.lastTrade %></td>
+  </tr>
+
+  <% end %>
+
+</table>
+
