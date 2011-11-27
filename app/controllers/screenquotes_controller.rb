@@ -5,17 +5,19 @@ class ScreenquotesController < ApplicationController
   end
 
 
-
+  
   def show
-   puts ""
-   @action = "Show Action"
-   puts @action
-   puts ""
-   @symbol = params[:symbol]
-   puts @symbol
-   puts ""
 
-   require 'yahoofinance'
+
+    puts ""
+  
+    puts "Executing Show Action"
+    puts ""
+    @quote_list = params[:symbol]
+    puts @quote_list
+    puts ""
+
+    require 'yahoofinance'
 
   
 
@@ -32,26 +34,24 @@ class ScreenquotesController < ApplicationController
     # them with a ',' (comma).
     
 
-    quote_symbols = params[:symbol]
+    quote_symbols = @quote_list
 
     # Get the quotes from Yahoo! Finance.  The get_quotes method call
     # returns a Hash containing one quote object of type "quote_type" for
     # each symbol in "quote_symbols".  If a block is given, it will be
     # called with the quote object (as in the example below).
     # YahooFinance::get_quotes( quote_type, quote_symbols ) do |qt|
-    #puts "QUOTING: #{qt.symbol}"
-    #puts qt.to_s
+  
 
-    @stock = params[:symbol]
-    puts @stock
-    puts ""
 
-    @quote = YahooFinance::get_quotes( quote_type, quote_symbols ) do |stock|
+    @quote_info = YahooFinance::get_quotes( quote_type, quote_symbols ) do |qt|
 
-    puts "Stock Symbol : #{stock.symbol}"
-    
-    puts stock.to_s
-    
+      puts ""
+     # puts "Stock Symbol : #{qt.symbol}"
+      puts qt.symbol
+      puts qt.bid.to_s
+      puts qt.ask.to_s
+      #puts qt.to_s 
     end
 
   end
