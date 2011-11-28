@@ -1,5 +1,5 @@
 <h1>New Stock Quote Request</h1>
-<%= form_tag("/screenquotes/show", :method => "get") do %>
+<%= form_tag("/show", :method => "get") do %>
   <%= label_tag(:symbol, "Stock Symbol:") %>
   <%= text_field_tag(:symbol) %>
   <%= submit_tag("Submit") %>

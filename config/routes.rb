@@ -1,11 +1,12 @@
 QuotesApp::Application.routes.draw do
  
+ 
+  get  '/new'    => 'screenquotes#new'
+ 
+  get  '/show'   => 'screenquotes#show'
+ 
+  root       :to => 'screenquotes#new'
 
-  get "screenquotes/new"
-
-  get "screenquotes/show"
-
-  root :to => 'screenquotes#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
